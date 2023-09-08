@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.NonOpmodes;
+package org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -51,6 +51,7 @@ public class CopiedPipeline extends OpenCvPipeline {
                 }
             }
         }
+
 
         // Determine object location
         if (w1 > w2) {

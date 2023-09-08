@@ -1,14 +1,15 @@
 package org.firstinspires.ftc.teamcode.NonOpmodes;
 
+
+
 import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.hardware.Servo;
+import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.*;
 
-import org.checkerframework.checker.units.qual.C;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.teamcode.NonOpmodes.PIDMotor;
+import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.CopiedPipeline;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
@@ -16,12 +17,9 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 import java.util.List;
 
 
-public class Hardware{//hi
+public class Hardware{
 
     //Webcam---------------------
-    int xWidth = 800;
-    int yWidth = 448;
-
     public OpenCvCamera webcam;
     //public ObjectDetectionPipeline pipeline = new ObjectDetectionPipeline();
     public CopiedPipeline pipeline = new CopiedPipeline();
@@ -32,6 +30,8 @@ public class Hardware{//hi
     public DcMotor motor1 = null;
     public PIDMotor customMotor = null;
     public Servo servo1 = null;
+
+    String MOTOR_1 = "motor1";
     //---------------------------
 
 
@@ -69,7 +69,7 @@ public class Hardware{//hi
 
 
         //---------------------Robot Hardware---------------------------
-        customMotor = new PIDMotor(hardwareMap, "motor1");
+        customMotor = new PIDMotor(hardwareMap, MOTOR_1);
 
         servo1 = hardwareMap.get(Servo.class, "servo1");
         //--------------------------------------------------------------

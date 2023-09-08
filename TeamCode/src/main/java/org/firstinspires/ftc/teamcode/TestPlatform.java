@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.stream.CameraStreamSource;
-import org.firstinspires.ftc.teamcode.NonOpmodes.CopiedPipeline;
+import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.CopiedPipeline;
 import org.firstinspires.ftc.teamcode.NonOpmodes.Hardware;
 import org.firstinspires.ftc.teamcode.NonOpmodes.PIDMotor;
 import org.firstinspires.ftc.teamcode.NonOpmodes.UtilGamepad;
