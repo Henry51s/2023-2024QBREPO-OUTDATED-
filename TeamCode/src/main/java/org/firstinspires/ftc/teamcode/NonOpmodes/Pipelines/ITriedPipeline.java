@@ -19,7 +19,7 @@ public class ITriedPipeline extends OpenCvPipeline {
 
     double xOffset = 0;
     double yOffset = 0;
-    double distance = 0;
+
 
     @Override
     public Mat processFrame(Mat input) {
@@ -34,8 +34,6 @@ public class ITriedPipeline extends OpenCvPipeline {
 
         xOffset = (int) m10 / m00;
         yOffset = (int) m01 / m00;
-        distance = Math.sqrt(Math.pow(xOffset,2)+Math.pow(yOffset,2));
-
 
         return mask;
     }
@@ -46,7 +44,5 @@ public class ITriedPipeline extends OpenCvPipeline {
     public double getY(){
         return yOffset;
     }
-    public double getDistance(){
-        return distance;
-    }
+
 }
