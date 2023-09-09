@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.imgproc.Moments;
@@ -17,7 +16,6 @@ public class ITriedPipeline extends OpenCvPipeline {
 
     Scalar lower = new Scalar(lowerH, lowerS, lowerV); // HSV threshold bounds
     Scalar upper = new Scalar(upperH, upperS, upperV);
-    Scalar circleColor = new Scalar(0, 100, 100);
 
     double xOffset = 0;
     double yOffset = 0;
@@ -39,7 +37,7 @@ public class ITriedPipeline extends OpenCvPipeline {
         distance = Math.sqrt(Math.pow(xOffset,2)+Math.pow(yOffset,2));
 
 
-        return null;
+        return mask;
     }
 
     public double getX(){
