@@ -10,8 +10,8 @@ public class UtilConstants {
     //Vision Constants-------------
 
     //Webcam Resolution
-    public static final int xWidth = 800;
-    public static final int yWidth = 448;
+    public static final int xDim = 800;
+    public static final int yDim = 448;
 
     public static final int dashboardStreamFps = 5;
 

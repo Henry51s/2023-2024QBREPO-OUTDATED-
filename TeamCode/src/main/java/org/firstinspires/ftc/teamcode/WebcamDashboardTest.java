@@ -1,8 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
 import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.dashboardStreamFps;
-import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.xWidth;
-import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.yWidth;
+import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.xDim;
+import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.yDim;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
@@ -30,7 +30,7 @@ public class WebcamDashboardTest extends OpMode {
             @Override
             public void onOpened() {
                 webcam.setPipeline(pipeline);
-                webcam.startStreaming(xWidth, yWidth, OpenCvCameraRotation.UPRIGHT);
+                webcam.startStreaming(xDim, yDim, OpenCvCameraRotation.UPRIGHT);
             }
 
             @Override
