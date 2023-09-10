@@ -8,6 +8,7 @@ import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 
 public class CopiedPipeline extends OpenCvPipeline {
+    //Idk why this shit is here. I straight up copied it from a video. It doesnt work.
     private String location; // output
 
     public Scalar lower = new Scalar(20, 70, 80); // HSV threshold bounds
