@@ -15,16 +15,22 @@ public class UtilConstants {
 
     public static final int dashboardStreamFps = 5;
 
+
     //Lower bound HSV values for desired color
-    public static final int lowerH = 20;
-    public static final int lowerS = 70;
-    public static final int lowerV = 80;
+    public static int lowerH = 73;
+    public static int lowerS = 160;
+    public static int lowerV = 59;
 
     //Upper bound HSV values for desired color
-    public static final int upperH = 32;
-    public static final int upperS = 255;
-    public static final int upperV = 255;
+    public static int upperH = 255;
+    public static int upperS = 188;
+    public static int upperV = 98;
 
+    //Dimensions for region of interest rectangle
+    public static int x1 = 0;
+    public static int y1 = 0;
+    public static int w = 800;
+    public static int h = 448;
     //-----------------------------
 
     //TestPlatform Constants

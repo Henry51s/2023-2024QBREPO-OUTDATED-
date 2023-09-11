@@ -10,6 +10,7 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
+import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,22 +27,6 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
             |                 |
             (0, Height) ----- (Width, Height)
     */
-    //Dimensions for region of interest rectangle
-    public static int x1 = 0;
-    public static int y1 = 0;
-    public static int w = 800;
-    public static int h = 448;
-
-    //Lower bound HSV values for desired color
-    public static int lowerH = 73;
-    public static int lowerS = 160;
-    public static int lowerV = 59;
-
-    //Upper bound HSV values for desired color
-    public static int upperH = 255;
-    public static int upperS = 188;
-    public static int upperV = 98;
-
     public Scalar lower = new Scalar(lowerH, lowerS, lowerV);
     public Scalar upper = new Scalar(upperH, upperS, upperV);
 
