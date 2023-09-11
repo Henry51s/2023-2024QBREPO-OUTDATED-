@@ -7,16 +7,19 @@ import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.yDim;
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.ITriedPipeline;
+import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.ObjectDetectionPipeline;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
+@TeleOp(name="WebcamDashboardTest")
 public class WebcamDashboardTest extends OpMode {
     OpenCvCamera webcam;
-    ITriedPipeline pipeline = new ITriedPipeline();
+    ObjectDetectionPipeline pipeline = new ObjectDetectionPipeline();
 
     FtcDashboard dashboard;
     TelemetryPacket packet = new TelemetryPacket();
@@ -29,7 +32,12 @@ public class WebcamDashboardTest extends OpMode {
 
             @Override
             public void onOpened() {
-                webcam.setPipeline(pipeline);
+                try {
+                    webcam.setPipeline(pipeline);
+                }
+                catch(Exception exception){
+                    telemetry.addLine("Error!");
+                }
                 webcam.startStreaming(xDim, yDim, OpenCvCameraRotation.UPRIGHT);
             }
 

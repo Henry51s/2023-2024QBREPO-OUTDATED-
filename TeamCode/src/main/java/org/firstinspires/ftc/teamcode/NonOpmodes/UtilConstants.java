@@ -24,6 +24,7 @@ public class UtilConstants {
     public static final int upperH = 32;
     public static final int upperS = 255;
     public static final int upperV = 255;
+
     //-----------------------------
 
     //TestPlatform Constants
