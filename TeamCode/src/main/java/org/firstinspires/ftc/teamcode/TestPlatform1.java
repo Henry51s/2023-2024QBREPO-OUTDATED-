@@ -16,7 +16,7 @@ import org.openftc.easyopencv.OpenCvCamera;
 
 
 @TeleOp(name="TestPlatform")
-public class TestPlatform extends OpMode {
+public class TestPlatform1 extends OpMode {
 
     Hardware hardware = new Hardware();
     UtilGamepad gamepad = new UtilGamepad();
