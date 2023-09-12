@@ -48,6 +48,7 @@ public class Hardware{
             public void onOpened() {
                 webcam.setPipeline(pipeline);
                 webcam.startStreaming(xDim, yDim, OpenCvCameraRotation.UPRIGHT);
+
             }
 
             @Override
