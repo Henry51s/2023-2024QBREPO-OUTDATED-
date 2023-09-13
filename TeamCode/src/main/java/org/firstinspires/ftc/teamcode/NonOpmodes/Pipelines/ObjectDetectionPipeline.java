@@ -86,6 +86,7 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
 
             roi.release();
             ycrcbImage.release();
+            contours.clear();
             return mask;
         }
         return input;

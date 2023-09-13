@@ -36,7 +36,7 @@ public class TestPlatform1 extends OpMode {
         gamepad.initGamepad(gamepad1);
         hardware.initHardware(hardwareMap);
 
-        customMotor = hardware.customMotor;
+
         webcam = hardware.webcam;
 
         dashboard = FtcDashboard.getInstance();

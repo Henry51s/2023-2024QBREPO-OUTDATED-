@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.NonOpmodes;
 
 
 import com.qualcomm.hardware.lynx.LynxModule;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -27,11 +28,13 @@ public class Hardware{
     //---------------------------
 
     //Robot Hardware-------------
-    public DcMotor motor1 = null;
-    public PIDMotor customMotor = null;
-    public Servo servo1 = null;
+    public DcMotor frontLeft, frontRight, backLeft, backRight;
 
-    String MOTOR_1 = "motor1";
+    //Motor wires are labelled
+    String MOTOR_0 = "motor0"; //Front Left
+    String MOTOR_1 = "motor1"; //Front Right
+    String MOTOR_2 = "motor2"; //Back Left
+    String MOTOR_3 = "motor3"; //Back Right
     //---------------------------
 
 
@@ -39,7 +42,7 @@ public class Hardware{
 
 
         // ------------------------------Webcam------------------------------------------------
-        int cameraMonitorId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId","id",hardwareMap.appContext.getPackageName());
+        /*int cameraMonitorId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId","id",hardwareMap.appContext.getPackageName());
 
         webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "webcam"), cameraMonitorId);
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
@@ -55,7 +58,7 @@ public class Hardware{
             public void onError(int errorCode) {
             }
         });
-
+        */
         //--------------------------------------------------------------------------------------
 
 
@@ -70,9 +73,15 @@ public class Hardware{
 
 
         //---------------------Robot Hardware---------------------------
-        customMotor = new PIDMotor(hardwareMap, MOTOR_1);
+        frontLeft = hardwareMap.get(DcMotor.class, MOTOR_0);
+        frontRight = hardwareMap.get(DcMotor.class, MOTOR_1);
+        backLeft = hardwareMap.get(DcMotor.class, MOTOR_2);
+        backRight = hardwareMap.get(DcMotor.class, MOTOR_3);
 
-        servo1 = hardwareMap.get(Servo.class, "servo1");
+        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+
+
         //--------------------------------------------------------------
     }
 }
