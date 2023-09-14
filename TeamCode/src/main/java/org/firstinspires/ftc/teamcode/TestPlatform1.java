@@ -12,7 +12,6 @@ import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.CopiedPipeline;
 import org.firstinspires.ftc.teamcode.NonOpmodes.Hardware;
 import org.firstinspires.ftc.teamcode.NonOpmodes.PIDMotor;
 import org.firstinspires.ftc.teamcode.NonOpmodes.UtilGamepad;
-import org.openftc.easyopencv.OpenCvCamera;
 
 
 @TeleOp(name="TestPlatform")
@@ -21,7 +20,7 @@ public class TestPlatform1 extends OpMode {
     Hardware hardware = new Hardware();
     UtilGamepad gamepad = new UtilGamepad();
 
-    OpenCvCamera webcam;
+    CVMaster webcam;
     PIDMotor customMotor;
 
     double targetPosition;
@@ -32,7 +31,7 @@ public class TestPlatform1 extends OpMode {
 
     @Override
     public void init() {
-        //pipeline = new CopiedPipeline();
+
         gamepad.initGamepad(gamepad1);
         hardware.initHardware(hardwareMap);
 
