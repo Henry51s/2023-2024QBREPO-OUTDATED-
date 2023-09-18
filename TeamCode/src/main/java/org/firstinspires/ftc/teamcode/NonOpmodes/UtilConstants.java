@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.NonOpmodes;
 
 import com.acmerobotics.dashboard.config.Config;
 
+import org.openftc.easyopencv.OpenCvCameraRotation;
+
 @Config
 public class UtilConstants {
 
@@ -10,18 +12,21 @@ public class UtilConstants {
     //Vision Constants-------------
 
     //Webcam Resolution
-    public static final int xDim = 800;
-    public static final int yDim = 448;
+    public static final int xResolution = 800;
+    public static final int yResolution = 448;
 
     public static final int dashboardStreamFps = 5;
 
+    //Camera Orientation
+    public static final OpenCvCameraRotation cameraOrientation = OpenCvCameraRotation.UPRIGHT;
 
-    //Lower bound HSV values for desired color
+
+    //Lower bound yCbCr values for desired color
     public static int lowerY = 73;
     public static int lowerCb = 160;
     public static int lowerCr = 59;
 
-    //Upper bound HSV values for desired color
+    //Upper bound yCbCr values for desired color
     public static int upperY = 255;
     public static int upperCb = 188;
     public static int upperCr = 98;
@@ -33,15 +38,6 @@ public class UtilConstants {
     public static int h = 448;
     //-----------------------------
 
-    //TestPlatform Constants
-    public static double kP = 0;
-    public static double kI = 0;
-    public static double kD = 0;
-    public static double kF = 0;
-
-    public static double TARGET_POS = 1000;
-    public static double TARGET_POS_2 = 100;
-    //-------------------------------------
 
 
 }

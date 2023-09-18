@@ -1,8 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
 import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.dashboardStreamFps;
-import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.xDim;
-import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.yDim;
+import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.xResolution;
+import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.yResolution;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -11,7 +11,6 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.ITriedPipeline;
 import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.ObjectDetectionPipeline;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
@@ -25,14 +24,6 @@ public class WebcamDashboardTest extends OpMode {
 
     FtcDashboard dashboard;
     TelemetryPacket packet = new TelemetryPacket();
-
-    //To DO: Set static constants for dashboard
-    public static int lowerH = 0;
-    public static int lowerS = 0;
-    public static int lowerV = 0;
-    public static int upperH = 0;
-    public static int upperS = 0;
-    public static int upperV = 0;
 
     @Override
     public void init() {
@@ -49,7 +40,7 @@ public class WebcamDashboardTest extends OpMode {
                 catch(Exception exception){
                     telemetry.addLine("Error!");
                 }
-                webcam.startStreaming(xDim, yDim, OpenCvCameraRotation.UPRIGHT);
+                webcam.startStreaming(xResolution, yResolution, OpenCvCameraRotation.UPRIGHT);
             }
 
             @Override
