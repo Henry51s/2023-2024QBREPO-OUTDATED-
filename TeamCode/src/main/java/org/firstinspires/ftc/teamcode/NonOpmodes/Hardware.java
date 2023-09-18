@@ -7,9 +7,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import org.firstinspires.ftc.teamcode.CVMaster;
-import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.CopiedPipeline;
-
 import java.util.List;
 
 
@@ -17,7 +14,6 @@ public class Hardware{
 
     //Webcam---------------------
     public CVMaster webcam = new CVMaster();
-
     //---------------------------
 
     //Robot Hardware-------------
@@ -33,7 +29,27 @@ public class Hardware{
     //---------------------------
 
 
-    public void initHardware(HardwareMap hardwareMap){
+    public void initDrive(HardwareMap hardwareMap){
+        frontLeft = hardwareMap.get(DcMotor.class, MOTOR_0);
+        frontRight = hardwareMap.get(DcMotor.class, MOTOR_1);
+        backLeft = hardwareMap.get(DcMotor.class, MOTOR_2);
+        backRight = hardwareMap.get(DcMotor.class, MOTOR_3);
+
+        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+
+    }
+    public void initIntake(HardwareMap hardwareMap){
+        //Insert code to init intake motor + anything else
+    }
+    public void initPickup(HardwareMap hardwareMap){
+        //Insert code to init pickup hardware
+    }
+    public void initSensors(HardwareMap hardwareMap){
+        //Insert code to init sensors
+
+    }
+    public void initRobot(HardwareMap hardwareMap){
 
 
         // ------------------------------Webcam------------------------------------------------
@@ -52,15 +68,9 @@ public class Hardware{
 
 
         //---------------------Robot Hardware---------------------------
-        frontLeft = hardwareMap.get(DcMotor.class, MOTOR_0);
-        frontRight = hardwareMap.get(DcMotor.class, MOTOR_1);
-        backLeft = hardwareMap.get(DcMotor.class, MOTOR_2);
-        backRight = hardwareMap.get(DcMotor.class, MOTOR_3);
-
-        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
-
-
+        initDrive(hardwareMap);
+        initIntake(hardwareMap);
+        initPickup(hardwareMap);
         //--------------------------------------------------------------
     }
 }
