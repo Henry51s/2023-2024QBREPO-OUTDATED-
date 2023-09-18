@@ -17,14 +17,14 @@ public class UtilConstants {
 
 
     //Lower bound HSV values for desired color
-    public static int lowerH = 73;
-    public static int lowerS = 160;
-    public static int lowerV = 59;
+    public static int lowerY = 73;
+    public static int lowerCb = 160;
+    public static int lowerCr = 59;
 
     //Upper bound HSV values for desired color
-    public static int upperH = 255;
-    public static int upperS = 188;
-    public static int upperV = 98;
+    public static int upperY = 255;
+    public static int upperCb = 188;
+    public static int upperCr = 98;
 
     //Dimensions for region of interest rectangle
     public static int x1 = 0;

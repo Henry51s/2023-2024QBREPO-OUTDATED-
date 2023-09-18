@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines;
 
 import com.acmerobotics.dashboard.config.Config;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
@@ -10,6 +9,7 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
+
 import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.*;
 
 import java.util.ArrayList;
@@ -27,11 +27,12 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
             |                 |
             (0, Height) ----- (Width, Height)
     */
-    public Scalar lower = new Scalar(lowerH, lowerS, lowerV);
-    public Scalar upper = new Scalar(upperH, upperS, upperV);
 
 
-    Mat ycrcbImage = new Mat();
+
+
+
+    Mat ycbcrImage = new Mat();
     Mat mask = new Mat();
     Mat hierarchy = new Mat();
 
@@ -57,15 +58,17 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
         6. Output bounding box x and y position
         7. Profit
         */
+        Scalar lower = new Scalar(lowerY, lowerCb, lowerCr);
+        Scalar upper = new Scalar(upperY, upperCb, upperCr);
         if (input != null) {
             //Crops image
             Mat roi = new Mat(input, regionOfInterest);
 
             //Converts image to yCrCb color space
-            Imgproc.cvtColor(roi, ycrcbImage, Imgproc.COLOR_RGB2YCrCb);
+            Imgproc.cvtColor(roi, ycbcrImage, Imgproc.COLOR_RGB2YCrCb);
 
             //Creates mask using given lower and upper bounds of color
-            Core.inRange(ycrcbImage, lower, upper, mask);
+            Core.inRange(ycbcrImage, lower, upper, mask);
 
             //Finds and draws contours around objects
             Imgproc.findContours(mask, contours, hierarchy, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);
@@ -79,13 +82,11 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
             //Draws rectangle on mask to be displayed
             Imgproc.rectangle(mask, boundingBox, new Scalar(25, 165, 0), 2);
 
-            if (boundingBox.x != 0 && boundingBox.y != 0) {
-                xOffset = boundingBox.x + (0.5 * boundingBox.width);
-                yOffset = boundingBox.y + (0.5 * boundingBox.height);
-            }
+            xOffset = boundingBox.x;
+            yOffset = boundingBox.y;
 
             roi.release();
-            ycrcbImage.release();
+            ycbcrImage.release();
             contours.clear();
             return mask;
         }
@@ -98,4 +99,6 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
     public double getY(){
         return yOffset;
     }
+
+
 }

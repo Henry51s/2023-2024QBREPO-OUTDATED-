@@ -5,6 +5,7 @@ import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.xDim;
 import static org.firstinspires.ftc.teamcode.NonOpmodes.UtilConstants.yDim;
 
 import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -16,6 +17,7 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
+@Config
 @TeleOp(name="WebcamDashboardTest")
 public class WebcamDashboardTest extends OpMode {
     OpenCvCamera webcam;
@@ -23,6 +25,15 @@ public class WebcamDashboardTest extends OpMode {
 
     FtcDashboard dashboard;
     TelemetryPacket packet = new TelemetryPacket();
+
+    //To DO: Set static constants for dashboard
+    public static int lowerH = 0;
+    public static int lowerS = 0;
+    public static int lowerV = 0;
+    public static int upperH = 0;
+    public static int upperS = 0;
+    public static int upperV = 0;
+
     @Override
     public void init() {
         int cameraMonitorId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId","id",hardwareMap.appContext.getPackageName());
@@ -49,10 +60,14 @@ public class WebcamDashboardTest extends OpMode {
         dashboard = FtcDashboard.getInstance();
         dashboard.setTelemetryTransmissionInterval(25);
         dashboard.startCameraStream(webcam, dashboardStreamFps);
+
+
     }
 
     @Override
     public void loop() {
+
+
         packet.put("xPos: ", pipeline.getX());
         packet.put("yPos: ", pipeline.getY());
         dashboard.sendTelemetryPacket(packet);
