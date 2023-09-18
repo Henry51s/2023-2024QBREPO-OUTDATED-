@@ -47,31 +47,21 @@ public class Hardware{
     }
     public void initSensors(HardwareMap hardwareMap){
         //Insert code to init sensors
+        webcam.initCamera(hardwareMap, WEBCAM);
 
     }
-    public void initRobot(HardwareMap hardwareMap){
-
-
-        // ------------------------------Webcam------------------------------------------------
-        webcam.initCamera(hardwareMap, WEBCAM);
-        //--------------------------------------------------------------------------------------
-
-
-
-        //-----------------Hub Bulk Read-------------------
+    public void initLynxModule(HardwareMap hardwareMap){
         List<LynxModule> allHubs = hardwareMap.getAll(LynxModule.class);
         for (LynxModule hub : allHubs){
             hub.setBulkCachingMode(LynxModule.BulkCachingMode.AUTO);
         }
-        //--------------------------------------------------------------
 
-
-
-        //---------------------Robot Hardware---------------------------
+    }
+    public void initRobot(HardwareMap hardwareMap){
+        //Run all init methods
         initDrive(hardwareMap);
         initIntake(hardwareMap);
         initPickup(hardwareMap);
-        //--------------------------------------------------------------
     }
 }
 
