@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.NonOpmodes.Hardware;
 
@@ -16,7 +15,7 @@ public class QBTeleOp extends OpMode {
     @Override
     public void init() {
 
-        hardware.initHardware(hardwareMap);
+        hardware.initRobot(hardwareMap);
         frontLeft = hardware.frontLeft;
         frontRight = hardware.frontRight;
         backLeft = hardware.backLeft;

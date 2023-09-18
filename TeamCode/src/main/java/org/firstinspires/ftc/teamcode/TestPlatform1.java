@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.stream.CameraStreamSource;
+import org.firstinspires.ftc.teamcode.NonOpmodes.CVMaster;
 import org.firstinspires.ftc.teamcode.NonOpmodes.Pipelines.CopiedPipeline;
 import org.firstinspires.ftc.teamcode.NonOpmodes.Hardware;
 import org.firstinspires.ftc.teamcode.NonOpmodes.PIDMotor;
@@ -33,7 +34,7 @@ public class TestPlatform1 extends OpMode {
     public void init() {
 
         gamepad.initGamepad(gamepad1);
-        hardware.initHardware(hardwareMap);
+        hardware.initRobot(hardwareMap);
 
 
         webcam = hardware.webcam;
