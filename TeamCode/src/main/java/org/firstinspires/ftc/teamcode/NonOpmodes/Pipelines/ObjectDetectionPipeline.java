@@ -29,9 +29,6 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
     */
 
 
-
-
-
     Mat ycbcrImage = new Mat();
     Mat mask = new Mat();
     Mat hierarchy = new Mat();
@@ -44,7 +41,6 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
 
     double xOffset = 0;
     double yOffset = 0;
-
 
 
     @Override
@@ -99,6 +95,4 @@ public class ObjectDetectionPipeline extends OpenCvPipeline {
     public double getY(){
         return yOffset;
     }
-
-
 }
