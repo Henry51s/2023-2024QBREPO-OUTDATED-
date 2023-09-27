@@ -14,6 +14,10 @@ public class PIDMotor {
     private double kD;
     private double kF;
 
+    double target_postion;
+
+    public void setTarget(double target){ this.target_postion = target;}
+
     PIDFController pidf = new PIDFController(kP, kI, kD, kF);
 
     public PIDMotor(HardwareMap hardwareMap, String configName){
@@ -36,17 +40,17 @@ public class PIDMotor {
         motor.setPower(power);
     }
 
-    private double output(double target){
+    private double output(){
         double output = pidf.calculate(
-                motor.getCurrentPosition(), target
+                motor.getCurrentPosition(), this.target_postion
         );
         return output;
     }
 
-    public void runToPosition(double target){
+    public void runToPosition(){
         double currentPos = motor.getCurrentPosition();
-        if (currentPos != target){
-            motor.setPower(output(target));
+        if (currentPos != this.target_postion){
+            motor.setPower(output());
         }
     }
 
