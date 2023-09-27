@@ -17,7 +17,7 @@ public class Hardware{
     //---------------------------
 
     //Robot Hardware-------------
-    public DcMotor frontLeft, frontRight, backLeft, backRight;
+    public DcMotor frontLeft, frontRight, backLeft, backRight, intake;
 
     //Motor wires are labelled
     String MOTOR_0 = "motor0"; //Front Left
@@ -41,6 +41,7 @@ public class Hardware{
     }
     public void initIntake(HardwareMap hardwareMap){
         //Insert code to init intake motor + anything else
+        intake = hardwareMap.get(DcMotor.class, MOTOR_0);
     }
     public void initPickup(HardwareMap hardwareMap){
         //Insert code to init pickup hardware
