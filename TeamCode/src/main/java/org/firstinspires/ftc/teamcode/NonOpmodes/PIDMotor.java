@@ -14,10 +14,17 @@ public class PIDMotor {
     private double kD;
     private double kF;
 
+    public double targetPosition = 0; //    Default/starting position
+
     PIDFController pidf = new PIDFController(kP, kI, kD, kF);
 
     public PIDMotor(HardwareMap hardwareMap, String configName){
         this.motor = hardwareMap.get(DcMotor.class, configName);
+        //Might add runModes to this constructor idk
+    }
+
+    public void setTargetPosition(double target){
+        this.targetPosition = target;
     }
 
     public void setCoefficients(double kP, double kI, double kD, double kF){
@@ -36,19 +43,17 @@ public class PIDMotor {
         motor.setPower(power);
     }
 
-    private double output(double target){
+    private double output(){
         double output = pidf.calculate(
-                motor.getCurrentPosition(), target
+                motor.getCurrentPosition(), this.targetPosition
         );
         return output;
     }
 
-
-    //
-    public void runToPosition(double target){
+    public void enableRunToPosition(){
         double currentPos = motor.getCurrentPosition();
-        if (currentPos != target){
-            motor.setPower(output(target));
+        if (currentPos != this.targetPosition){
+            motor.setPower(output());
         }
     }
 
